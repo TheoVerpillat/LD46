@@ -18,13 +18,13 @@ public class UI_PercentageOfScreen : MonoBehaviour
 
 
 
-    private Image _PanelImage;
+    private RectTransform _PanelImage;
     private Camera _mainCamera;
     // Start is called before the first frame update
     void Start()
     {
         _mainCamera = Camera.main;
-        _PanelImage = GetComponent<Image>();
+        _PanelImage = GetComponent<RectTransform>();
 
         //Debug.Log("HP: " + HorizontalPercentage);
         //Debug.Log("VP: " + VerticalPercentage);
@@ -34,33 +34,36 @@ public class UI_PercentageOfScreen : MonoBehaviour
 
 
         float newWidth = (HorizontalPercentage / 100) * _mainCamera.pixelWidth;
-        float newHeight = (VerticalPercentage / 100) * _mainCamera.pixelWidth;
+        float newHeight = (VerticalPercentage / 100) * _mainCamera.pixelHeight;
 
         //Debug.Log(gameObject + " : " + newWidth + " * " + newHeight);
 
-        _PanelImage.rectTransform.sizeDelta = new Vector2(newWidth, newHeight);
+        _PanelImage.sizeDelta = new Vector2(newWidth, newHeight);
 
 
         if (panelOrientation.Equals(OrientationEnum.HORIZONTAL)){ //If the whole panel is horizontal
             if (panelPlacement.Equals(PlacementEnum.TOP)) //If the whole panel is placed on top of the screen
             {
-                _PanelImage.rectTransform.anchoredPosition = new Vector2(_PanelImage.rectTransform.anchoredPosition.x, -newHeight / 2);
+                _PanelImage.anchoredPosition = new Vector2(_PanelImage.anchoredPosition.x, -newHeight / 2);
             }
             else if (panelPlacement.Equals(PlacementEnum.BOTTOM))
             {
-                _PanelImage.rectTransform.anchoredPosition = new Vector2(_PanelImage.rectTransform.anchoredPosition.x, newHeight / 2);
+                _PanelImage.anchoredPosition = new Vector2(_PanelImage.anchoredPosition.x, newHeight / 2);
             }
 
             //Positions of the side sprites
+
             if (spritePosition.Equals(PositionEnum.LEFT))
             {
-                _PanelImage.rectTransform.anchoredPosition = new Vector2(newHeight / 2, _PanelImage.rectTransform.anchoredPosition.y);
+                _PanelImage.anchoredPosition = new Vector2(newHeight / 2, _PanelImage.anchoredPosition.y);
             }
             else if (spritePosition.Equals(PositionEnum.RIGHT))
             {
-                _PanelImage.rectTransform.anchoredPosition = new Vector2(-newHeight / 2, _PanelImage.rectTransform.anchoredPosition.y);
+                _PanelImage.anchoredPosition = new Vector2(-newHeight / 2, _PanelImage.anchoredPosition.y);
             }
         }
+
+        GetComponent<UI_Offset>().OffsetElement(_PanelImage);
 
 
     }

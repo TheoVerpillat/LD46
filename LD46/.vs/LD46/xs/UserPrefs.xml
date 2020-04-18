@@ -1,7 +1,8 @@
 ﻿<Properties StartupConfiguration="{B1DFBC55-95C2-9078-623F-D1A132B80019}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/UI/UI_PercentageOfScreen.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/UI/UI_Offset.cs">
     <Files>
-      <File FileName="Assets/Scripts/UI/UI_PercentageOfScreen.cs" Line="4" Column="4" />
+      <File FileName="Assets/Scripts/UI/UI_PercentageOfScreen.cs" Line="28" Column="9" />
+      <File FileName="Assets/Scripts/UI/UI_Offset.cs" Line="7" Column="8" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
