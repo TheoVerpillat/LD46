@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1620288021001443201
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3618169591024797669}
+  - component: {fileID: 5725462044315306900}
+  m_Layer: 0
+  m_Name: Alain
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3618169591024797669
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1620288021001443201}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 722.40533, y: 308.7719, z: -1433.7885}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5725462044315306900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1620288021001443201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4398804307d774d54a52f1da0fa3a470, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterName: Alain
+  health: 5
+  portrait: {fileID: 21300000, guid: 26e8bbfe76aa84e5e89df5065aaaa139, type: 3}
+  itemList:
+  - {fileID: 5326313693202570314, guid: c173b79d17e5347558ca2c835a810da6, type: 3}
+  - {fileID: 1449884019278202749, guid: 8173192ad316e4b049284336ef44b31a, type: 3}
+  - {fileID: 7500678523579159572, guid: 3fb7e94e4cce44656b2d9e69b6f9dc49, type: 3}
