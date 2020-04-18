@@ -5,16 +5,16 @@ using UnityEngine.UI;
 
 public class UI_PercentageOfScreen : MonoBehaviour
 {
-    enum PositionEnum { LEFT, MIDDLE, RIGHT }
-    enum OrientationEnum { HORIZONTAL, VERTICAL }
-    enum PlacementEnum { UP, DOWN, LEFT, RIGHT }
+    enum PositionEnum { LEFT, MIDDLE, RIGHT } //Position of the sprites
+    enum OrientationEnum { HORIZONTAL, VERTICAL } //Orientation of the panel
+    enum PlacementEnum { TOP, BOTTOM, LEFT, RIGHT } //Placement of the panel
 
 
     [SerializeField] private float HorizontalPercentage;
     [SerializeField] private float VerticalPercentage;
-    [SerializeField] private PositionEnum position;
-    [SerializeField] private OrientationEnum orientation;
-    [SerializeField] private PlacementEnum placement;
+    [SerializeField] private PositionEnum spritePosition;
+    [SerializeField] private OrientationEnum panelOrientation;
+    [SerializeField] private PlacementEnum panelPlacement;
 
 
 
@@ -41,18 +41,24 @@ public class UI_PercentageOfScreen : MonoBehaviour
         _PanelImage.rectTransform.sizeDelta = new Vector2(newWidth, newHeight);
 
 
-        if (orientation.Equals(OrientationEnum.HORIZONTAL)){
-            if (placement.Equals(PlacementEnum.UP))
+        if (panelOrientation.Equals(OrientationEnum.HORIZONTAL)){ //If the whole panel is horizontal
+            if (panelPlacement.Equals(PlacementEnum.TOP)) //If the whole panel is placed on top of the screen
             {
                 _PanelImage.rectTransform.anchoredPosition = new Vector2(_PanelImage.rectTransform.anchoredPosition.x, -newHeight / 2);
-                if (position.Equals(PositionEnum.LEFT))
-                {
-                    _PanelImage.rectTransform.anchoredPosition = new Vector2(newHeight / 2, _PanelImage.rectTransform.anchoredPosition.y);
-                }
-                else if (position.Equals(PositionEnum.RIGHT))
-                {
-                    _PanelImage.rectTransform.anchoredPosition = new Vector2(-newHeight / 2, _PanelImage.rectTransform.anchoredPosition.y);
-                }
+            }
+            else if (panelPlacement.Equals(PlacementEnum.BOTTOM))
+            {
+                _PanelImage.rectTransform.anchoredPosition = new Vector2(_PanelImage.rectTransform.anchoredPosition.x, newHeight / 2);
+            }
+
+            //Positions of the side sprites
+            if (spritePosition.Equals(PositionEnum.LEFT))
+            {
+                _PanelImage.rectTransform.anchoredPosition = new Vector2(newHeight / 2, _PanelImage.rectTransform.anchoredPosition.y);
+            }
+            else if (spritePosition.Equals(PositionEnum.RIGHT))
+            {
+                _PanelImage.rectTransform.anchoredPosition = new Vector2(-newHeight / 2, _PanelImage.rectTransform.anchoredPosition.y);
             }
         }
 
