@@ -45,8 +45,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Alain
   health: 5
+  money: 100
   portrait: {fileID: 21300000, guid: 26e8bbfe76aa84e5e89df5065aaaa139, type: 3}
   itemList:
   - {fileID: 1969667284319460800, guid: b6106bf1e64a3409d8ffad9530987752, type: 3}
   - {fileID: 1449884019278202749, guid: 8173192ad316e4b049284336ef44b31a, type: 3}
   - {fileID: 7500678523579159572, guid: 3fb7e94e4cce44656b2d9e69b6f9dc49, type: 3}
+  isMainCharacter: 1

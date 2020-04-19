@@ -22,39 +22,44 @@ public class UI_DisplayStats : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Refresh();
+
+    }
+
+    public void Refresh()
+    {
         //Display Character
         Character character = characterObject.GetComponent<Character>();
         GameObject[] itemObjects = character.itemList;
-        Debug.Log(character.health);
+        //Debug.Log(character.health);
         portraitPanel.GetComponent<Image>().sprite = character.portrait;
 
-        float healthValue = (float)character.health/2;
+        float healthValue = (float)character.health / 2;
         int healthInt = (int)healthValue;
-        Debug.Log(healthValue + " | " + healthInt);
+        //Debug.Log(healthValue + " | " + healthInt);
+       
+        for (int i = 0; i < healthPanels.Length; i++)
+        {
+            //Debug.Log("oula keskispass");
+            healthPanels[i].GetComponent<Image>().sprite = healthSprites[2];
+        }
 
-        for(int i = 0; i < healthInt; i++)
+        for (int i = 0; i < healthInt; i++)
         {
             healthPanels[i].GetComponent<Image>().sprite = healthSprites[0];
-            if ((float)healthInt != healthValue && i == healthInt -1)
+            if ((float)healthInt != healthValue && i == healthInt - 1)
             {
                 healthPanels[healthInt].GetComponent<Image>().sprite = healthSprites[1];
             }
         }
 
+
         //Display Items
-        for(int i = 0; i < itemsSpritePanel.Length; i++)
+        for (int i = 0; i < itemsSpritePanel.Length; i++)
         {
             Item item = itemObjects[i].GetComponent<Item>();
             itemsSpritePanel[i].GetComponent<Image>().sprite = item.icon;
             itemsTexts[i].text = item.serial + "\n" + item.capacity1 + " - " + item.capacity2;
         }
-
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

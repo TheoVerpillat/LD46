@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class ItemSlot : MonoBehaviour
 {
@@ -15,5 +16,6 @@ public class ItemSlot : MonoBehaviour
         itemStatsPanel.text = item.serial + "\n" + item.capacity1 + " - " + item.capacity2;
         itemCostPanel.text = "$" + item.cost;
         linkedItemPanel.LinkedItem = itemObject;
+        transform.GetChild(0).GetComponent<Image>().sprite = item.icon;
     }
 }

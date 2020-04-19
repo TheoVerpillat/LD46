@@ -11,13 +11,14 @@ public class ShopButton : MonoBehaviour
     public ShopInventory shopInventory;
     public ShopButton sellButton;
 
+
     private int buttonStatus;
 
     public void AddItem()
     {
-        Debug.Log("_____________________");
+        //Debug.Log("_____________________");
         Debug.Log("BUTTON PRESSED: " + this);
-        Debug.Log("BUTTON STATUS: " + buttonStatus);
+        //Debug.Log("BUTTON STATUS: " + buttonStatus);
         if (buttonStatus != 0)
         {
             //Debug.Log("BUTTON STATUS: " + buttonStatus);
@@ -26,7 +27,7 @@ public class ShopButton : MonoBehaviour
         }
         if (LinkedItem.GetComponent<Item>().itemType.Equals(Item.ItemType.WEAPON))
         {
-            Debug.Log("PRECEDENT ITEM: " + shopInventory.precedentWeaponButtonPressed);
+            //Debug.Log("PRECEDENT ITEM: " + shopInventory.precedentWeaponButtonPressed);
             if (shopInventory.precedentWeaponButtonPressed != null)
             {
                 ChangeButton(shopInventory.precedentWeaponButtonPressed, buttonValue.ADD);
@@ -34,6 +35,7 @@ public class ShopButton : MonoBehaviour
                 //shopInventory.precedentWeaponButtonPressed.RemoveItem();
             }
             shopInventory.temporaryCharacterItems[0] = LinkedItem;
+            shopInventory.selledItems[0] = transform.parent.GetComponent<ItemSlot>();
             shopInventory.precedentWeaponButtonPressed = this;
 
         }
@@ -46,6 +48,7 @@ public class ShopButton : MonoBehaviour
 
             }
             shopInventory.temporaryCharacterItems[1] = LinkedItem;
+            shopInventory.selledItems[1] = transform.parent.GetComponent<ItemSlot>();
             shopInventory.precedentArmorButtonPressed = this;
 
         }
@@ -57,6 +60,7 @@ public class ShopButton : MonoBehaviour
                 shopInventory.totalCost -= shopInventory.precedentSpecialsButtonPressed.LinkedItem.GetComponent<Item>().cost;
             }
             shopInventory.temporaryCharacterItems[2] = LinkedItem;
+            shopInventory.selledItems[2] = transform.parent.GetComponent<ItemSlot>();
             shopInventory.precedentSpecialsButtonPressed = this;
         }
         else if (LinkedItem.GetComponent<Item>().itemType.Equals(Item.ItemType.POTION))
@@ -72,23 +76,26 @@ public class ShopButton : MonoBehaviour
 
     public void RemoveItem()
     {
-        Debug.Log("REMOVE ITEM");
+        //Debug.Log("REMOVE ITEM");
         if (LinkedItem.GetComponent<Item>().itemType.Equals(Item.ItemType.WEAPON))
         {
-            Debug.Log("PRECEDENT ITEM: " + shopInventory.precedentWeaponButtonPressed);
+            //Debug.Log("PRECEDENT ITEM: " + shopInventory.precedentWeaponButtonPressed);
             shopInventory.temporaryCharacterItems[0] = null;
+            shopInventory.selledItems[0] = null;
             shopInventory.precedentWeaponButtonPressed = null;
 
         }
         else if (LinkedItem.GetComponent<Item>().itemType.Equals(Item.ItemType.ARMOR))
         {
             shopInventory.temporaryCharacterItems[1] = null;
+            shopInventory.selledItems[1] = null;
             shopInventory.precedentArmorButtonPressed = null;
 
         }
         else if (LinkedItem.GetComponent<Item>().itemType.Equals(Item.ItemType.SPECIALS))
         {
             shopInventory.temporaryCharacterItems[2] = null;
+            shopInventory.selledItems[2] = null;
             shopInventory.precedentSpecialsButtonPressed = null;
         }
         else if (LinkedItem.GetComponent<Item>().itemType.Equals(Item.ItemType.POTION))
@@ -111,16 +118,37 @@ public class ShopButton : MonoBehaviour
     {
         for (int i = 0; i < shopInventory.temporaryCharacterItems.Length; i++)
         {
-            if(shopInventory.temporaryCharacterItems[i] != null) shopInventory.character.GetComponent<Character>().itemList[i] = shopInventory.temporaryCharacterItems[i];
+            if (shopInventory.temporaryCharacterItems[i] != null)
+            {
+                //Debug.Log("EMBALLÉ C'EST PESÉ");
+                shopInventory.character.GetComponent<Character>().itemList[i] = shopInventory.temporaryCharacterItems[i];
+                shopInventory.temporaryCharacterItems[i] = null;
+
+            }
+            else
+            {
+                //Debug.Log("Y a rien :'(");
+            }
         }
+
         shopInventory.character.GetComponent<Character>().health += shopInventory.temporaryHealth;
         if (shopInventory.character.GetComponent<Character>().health > 12) shopInventory.character.GetComponent<Character>().health = 12;
-        //Next Character
+
+        //Refresh Health
+        shopInventory.money += shopInventory.totalCost;
+        shopInventory.precedentWeaponButtonPressed = null;
+        shopInventory.precedentArmorButtonPressed = null;
+        shopInventory.precedentWeaponButtonPressed = null;
+        ChangeButton(this, buttonValue.DONTSELL);
+        shopInventory.totalCost = 0;
+        RemoveSelledItems();
+        shopInventory.gameManager.NextClient();
     }
 
     public void dontSellAnything()
     {
-        //Next Character
+        //Add to Count
+        shopInventory.gameManager.NextClient();
     }
 
     private void ChangeButton (ShopButton button, buttonValue value)
@@ -129,28 +157,40 @@ public class ShopButton : MonoBehaviour
         {
             button.buttonStatus = 0;
             button.GetComponent<Image>().sprite = shopInventory.shopButtonSprites[0];
-            Debug.Log("CHANGED TO ADD BUTTON");
+            //Debug.Log("CHANGED TO ADD BUTTON");
         }
         else if (value.Equals(buttonValue.REMOVE))
         {
             button.buttonStatus = 1;
             button.GetComponent<Image>().sprite = shopInventory.shopButtonSprites[1];
-            Debug.Log("CHANGED TO REMOVE BUTTON");
+            //Debug.Log("CHANGED TO REMOVE BUTTON");
         }
         else if (value.Equals(buttonValue.SELL))
         {
             button.buttonStatus = 2;
             //button.GetComponent<Image>().sprite = shopInventory.shopButtonSprites[2];
             button.GetComponentInChildren<TMP_Text>().text = "SELL\n" + "$"+shopInventory.totalCost;
-            Debug.Log("CHANGED TO SELL BUTTON");
+            //Debug.Log("CHANGED TO SELL BUTTON");
         }
         else if (value.Equals(buttonValue.DONTSELL))
         {
             button.buttonStatus = 3;
             //button.GetComponent<Image>().sprite = shopInventory.shopButtonSprites[3];
             button.GetComponentInChildren<TMP_Text>().text = "DON'T SELL";
-            Debug.Log("CHANGED TO DONTSELL BUTTON");
+            //Debug.Log("CHANGED TO DONTSELL BUTTON");
         }
 
     }
+
+    public void RemoveSelledItems()
+    {
+        for(int i = 0; i < shopInventory.selledItems.Length; i++)
+        {
+            if(shopInventory.selledItems[i] != null)
+            {
+                shopInventory.selledItems[i].gameObject.SetActive(false);
+            }
+        }
+    }
+
 }
