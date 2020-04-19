@@ -11,6 +11,7 @@ public class MenuScript : MonoBehaviour
     [SerializeField] private GameObject pauseCanvas;
     [SerializeField] private GameObject howToCanvas;
     [SerializeField] private AudioSource buttonSound;
+    [SerializeField] private AudioSource hoverSound;
 
     [SerializeField] private GameObject page1;
     [SerializeField] private GameObject page2;
@@ -21,10 +22,16 @@ public class MenuScript : MonoBehaviour
     private GameObject backCanvas;
     //private PauseScript pauseScript;
 
+
     private void Start()
     {
         //pauseScript = gameObject.GetComponent<PauseScript>();
         //pauseScript.inGame = false;
+    }
+
+    public void OnHover()
+    {
+        if (hoverSound) { hoverSound.Play(); }
     }
 
     public void StartGame()
@@ -73,12 +80,14 @@ public class MenuScript : MonoBehaviour
 
     public void Back()
     {
+        if (buttonSound) { buttonSound.Play(); }
         creditsCanvas.SetActive(false);
         backCanvas.SetActive(true);
     }
 
     public void StartHowTo()
     {
+        if (buttonSound) { buttonSound.Play(); }
         currentPage = 1;
         howToCanvas.SetActive(true);
         menuCanvas.SetActive(false);
@@ -86,6 +95,7 @@ public class MenuScript : MonoBehaviour
 
     public void NextPage()
     {
+        if (buttonSound) { buttonSound.Play(); }
         if (currentPage == 1)
         {
             currentPage = 2;
@@ -108,6 +118,7 @@ public class MenuScript : MonoBehaviour
 
     public void PreviousPage()
     {
+        if (buttonSound) { buttonSound.Play(); }
         if (currentPage == 1)
         {
             howToCanvas.SetActive(false);
