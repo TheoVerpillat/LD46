@@ -365,3 +365,4 @@
 /Users/Theo/Documents/Projects/Unity/LD46/LD46/obj/Debug/Assembly-CSharp.csproj.CopyComplete
 /Users/Theo/Documents/Projects/Unity/LD46/LD46/obj/Debug/Assembly-CSharp.dll
 /Users/Theo/Documents/Projects/Unity/LD46/LD46/obj/Debug/Assembly-CSharp.pdb
+/Users/Theo/Documents/Projects/Unity/LD46/LD46/Temp/bin/Debug/ICSharpCode.NRefactory.dll
