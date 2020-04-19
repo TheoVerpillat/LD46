@@ -18,7 +18,6 @@ public class MenuScript : MonoBehaviour
     [SerializeField] private GameObject page3;
     private int currentPage;
 
-    //[SerializeField] private GameObject hero;
     private GameObject backCanvas;
     //private PauseScript pauseScript;
 
@@ -43,7 +42,6 @@ public class MenuScript : MonoBehaviour
 
     public void RestartGame()
     {
-        Time.timeScale = 1;
         if (buttonSound) { buttonSound.Play(); }
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
@@ -52,7 +50,7 @@ public class MenuScript : MonoBehaviour
     {
         if (buttonSound) { buttonSound.Play(); }
 
-        if (menuCanvas.activeSelf)
+        if (menuCanvas)
         {
             menuCanvas.SetActive(false);
             backCanvas = menuCanvas;
@@ -75,7 +73,7 @@ public class MenuScript : MonoBehaviour
     public void GoToMenu()
     {
         if (buttonSound) { buttonSound.Play(); }
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 
     public void Back()
@@ -89,8 +87,19 @@ public class MenuScript : MonoBehaviour
     {
         if (buttonSound) { buttonSound.Play(); }
         currentPage = 1;
+
+        if (menuCanvas)
+        {
+            menuCanvas.SetActive(false);
+            backCanvas = menuCanvas;
+        }
+        else
+        {
+            pauseCanvas.SetActive(false);
+            backCanvas = pauseCanvas;
+        }
+
         howToCanvas.SetActive(true);
-        menuCanvas.SetActive(false);
     }
 
     public void NextPage()
@@ -110,7 +119,7 @@ public class MenuScript : MonoBehaviour
         {
             currentPage = 1;
             page1.SetActive(true);
-            menuCanvas.SetActive(true);
+            backCanvas.SetActive(true);
             page3.SetActive(false);
             howToCanvas.SetActive(false);
         }
@@ -122,7 +131,7 @@ public class MenuScript : MonoBehaviour
         if (currentPage == 1)
         {
             howToCanvas.SetActive(false);
-            menuCanvas.SetActive(true);
+            backCanvas.SetActive(true);
         } else if (currentPage == 2)
         {
             currentPage = 1;
