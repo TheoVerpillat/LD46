@@ -75,6 +75,7 @@
     <Compile Include="Assets\Scripts\Menu\MenuScript.cs" />
     <Compile Include="Assets\Scripts\Menu\PauseScript.cs" />
     <Compile Include="Assets\Scripts\Monster.cs" />
+    <Compile Include="Assets\Scripts\MusicScript.cs" />
     <Compile Include="Assets\Scripts\ShopButton.cs" />
     <Compile Include="Assets\Scripts\ShopInventory.cs" />
     <Compile Include="Assets\Scripts\ShopInventoryRandomizer.cs" />
