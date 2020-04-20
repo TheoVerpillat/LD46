@@ -134,6 +134,7 @@ public class ShopButton : MonoBehaviour
         if (shopInventory.character.GetComponent<Character>().health > 12) shopInventory.character.GetComponent<Character>().health = 12;
 
         if (shopInventory.character.GetComponent<Character>().isMainCharacter) {
+            shopInventory.gameManager.permanentCharacterHealth = shopInventory.character.GetComponent<Character>().health;
             shopInventory.gameManager.permanentCharacterInventory = shopInventory.character.GetComponent<Character>().itemList;
          }
         //Refresh Health
