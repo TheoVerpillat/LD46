@@ -22,7 +22,7 @@ public class CharacterItemsRandomizer : MonoBehaviour
 
     public void RandomizeHealth()
     {
-        int random = (int)Random.Range(1, 12);
+        int random = (int)Random.Range(2, 12);
         GetComponent<Character>().health = random;
     }
 

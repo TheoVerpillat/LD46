@@ -11,4 +11,5 @@ public class Character : MonoBehaviour
     public GameObject[] itemList;
     public bool isMainCharacter = false;
     public string dialogueLine;
+    public bool isAlive = true;
 }
