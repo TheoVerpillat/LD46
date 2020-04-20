@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class ShopInventoryRandomizer : MonoBehaviour
 {
-    [SerializeField] GameObject[] weaponList;
-    [SerializeField] GameObject[] armorList;
-    [SerializeField] GameObject[] specialsList;
-    [SerializeField] GameObject[] potionList;
+    public GameObject[] weaponList;
+    public GameObject[] armorList;
+    public GameObject[] specialsList;
+    public GameObject[] potionList;
     public int floor;
 
     public ShopInventory shopInventory;

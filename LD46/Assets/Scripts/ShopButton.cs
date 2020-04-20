@@ -123,7 +123,6 @@ public class ShopButton : MonoBehaviour
                 //Debug.Log("EMBALLÉ C'EST PESÉ");
                 shopInventory.character.GetComponent<Character>().itemList[i] = shopInventory.temporaryCharacterItems[i];
                 shopInventory.temporaryCharacterItems[i] = null;
-
             }
             else
             {
@@ -134,6 +133,9 @@ public class ShopButton : MonoBehaviour
         shopInventory.character.GetComponent<Character>().health += shopInventory.temporaryHealth;
         if (shopInventory.character.GetComponent<Character>().health > 12) shopInventory.character.GetComponent<Character>().health = 12;
 
+        if (shopInventory.character.GetComponent<Character>().isMainCharacter) {
+            shopInventory.gameManager.permanentCharacterInventory = shopInventory.character.GetComponent<Character>().itemList;
+         }
         //Refresh Health
         shopInventory.money += shopInventory.totalCost;
         shopInventory.precedentWeaponButtonPressed = null;
