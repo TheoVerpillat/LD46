@@ -40,6 +40,13 @@ public class SentencesGenerator : MonoBehaviour
         dialogPanel.text = s;
         for (int i = 0; i < sentence.Length; i++)
         {
+            float rndPitch = Random.Range(0.9f, 1.1f);
+            int rndMod = Random.Range(2, 5);
+            if (i%rndMod == 0)
+            {
+                dialogPanel.GetComponent<AudioSource>().pitch = rndPitch;
+                dialogPanel.GetComponent<AudioSource>().Play();
+            }
             dialogPanel.text += sentence[i];
             yield return new WaitForSeconds(0.005f);
         }
