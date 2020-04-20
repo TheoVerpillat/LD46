@@ -49,4 +49,4 @@ MonoBehaviour:
   capacity1: ICE
   capacity2: MECHA
   potionEfficacity: 0
-  icon: {fileID: 21300000, guid: 77dba44b3b1c14254a2f54fa9e06025e, type: 3}
+  icon: {fileID: 21300000, guid: 7f82830008a88be45878561c48a0c779, type: 3}
