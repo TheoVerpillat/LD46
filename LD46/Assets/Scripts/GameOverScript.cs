@@ -10,8 +10,8 @@ public class GameOverScript : MonoBehaviour
 
     [SerializeField] Animator anim;
     [SerializeField] GameObject gameOverCanvas;
-    [SerializeField] Text heroDeadText;
-    [SerializeField] Text noMoneyText;
+    [SerializeField] GameObject heroDeadText;
+    [SerializeField] GameObject noMoneyText;
 
     // Start is called before the first frame update
     void Start()
@@ -26,13 +26,13 @@ public class GameOverScript : MonoBehaviour
         {
             gameOverCanvas.SetActive(true);
             anim.SetTrigger("Appear");
-            heroDeadText.gameObject.SetActive(true);
+            heroDeadText.SetActive(true);
             heroDead = false;
         } else if (noMoney)
         {
             gameOverCanvas.SetActive(true);
             anim.SetTrigger("Appear");
-            noMoneyText.gameObject.SetActive(true);
+            noMoneyText.SetActive(true);
             noMoney = false;
         }
     }
