@@ -5917,11 +5917,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15804952c2455164f9d08247216f9cb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  savings: 1000
-  rent: -500
-  penaltyValue: -300
+  savings: 200
+  rent: -200
+  penaltyValue: -50
   penaltiesNbr: 1
   total: 0
+  gameManager: {fileID: 608459856}
   calculateTaxes: 0
   TaxCanvas: {fileID: 389328091}
   savingsText: {fileID: 308483255}
@@ -7544,6 +7545,8 @@ GameObject:
   - component: {fileID: 608459855}
   - component: {fileID: 608459854}
   - component: {fileID: 608459856}
+  - component: {fileID: 608459857}
+  - component: {fileID: 608459858}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -7630,6 +7633,168 @@ MonoBehaviour:
   shopInventory: {fileID: 1364121493}
   permanentCharacterInventory: []
   permanentCharacterHealth: 0
+  sentencesGenerator: {fileID: 608459857}
+  taxesManager: {fileID: 428849346}
+  gameOverManager: {fileID: 863404025}
+  victoryManager: {fileID: 124014149}
+  canGoToNextFloor: 0
+  numberOfPenalties: 0
+  failState: 0
+--- !u!114 &608459857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 608459853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 461f90821cab64968a2f99ac1819b64a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sentencesStart:
+  - 'Hello. I''d like to buy something cool against '
+  - Hey, don't you mind giving me some kick-
+  - 'Oh my, these '
+  - 'I knew I should have taken something against '
+  - 'Mmmh... let''s see... this item is very catchy... but I''ll better need something
+    against '
+  - 'Hey you, you want to see someone beeing eaten alive by '
+  - 'Don''t stare at me like that, it looks like you''ve never seen anyone''s arm
+    ripped by '
+  - 'Have you seen some '
+  - '... and then, I remembered what Dan said about how '
+  - 'Syha''h ah''legeth. Yeah, that *** '
+  - 'Do you make bundle of good items against '
+  - 'Do you have mustard sauce? Someone told me it would help me smash '
+  sentencesEnd:
+  - ' monsters, please.'
+  - -monsters-ass item?
+  - ' monsters are tough! Isn''t there anything to blow there brain out?'
+  - ' monsters. I KNEW IT!'
+  - ' monsters.'
+  - ' monsters? Give me something, quick.'
+  - ' monsters before.'
+  - ' monsters around? They''re still hiding somewhere, I''ll have them show up!'
+  - ' monsters didn''t like it, so I came here and...'
+  - ' monster told me exactly that, can you believe it? He''ll regret that.'
+  - ' monsters? Crap.'
+  - ' monsters...'
+  mainCharacterSentences:
+  - (Oooh, it's him again! I should try to sell him the most effective items against
+    the next ennemies)
+  - (It seems my items actually helped him! But now his stuff isn't the most appropriate
+    for the next room...)
+  - (These muscles ... this charism ... My life won't have anymore purpose if he
+    dies in this place)
+  - (He survived again! Maybe he'll be able to reach the 10th floor and beat the
+    dungeon?)
+  - (I heard the next floors are hosting more monsters... I have to pay greater attention!)
+  - (His last fight seems to have weakened him... Some potions may help him to stay
+    fit!)
+  - (He reached this floor! I was so afraid not to see him again...)
+  - (Only a few more rooms and he'll be out of danger. Keep it up, my love!)
+  - (Why don't we also have some Love Potions here? I should definitely add some
+    to the supply list.)
+  - (This is his last challenge. May his muscles and my weapons take care of these
+    monsters!)
+  dialogPanel: {fileID: 273129278}
+--- !u!82 &608459858
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 608459853}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 1570aa19f77bcf749bb5a735841dbc6a, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &608638010
 GameObject:
   m_ObjectHideFlags: 0

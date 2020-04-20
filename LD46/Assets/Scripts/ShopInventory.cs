@@ -17,7 +17,7 @@ public class ShopInventory : MonoBehaviour
     public GameManager gameManager;
     public ItemSlot[] selledItems;
     public int money;
-
+    
 
     private void Start()
     {
