@@ -23,9 +23,15 @@ public class GameManager : MonoBehaviour
     public UI_DisplayStats statsPanel;
     public ShopInventory shopInventory;
 
+    public GameObject[] permanentCharacterInventory;
+    public int permanentCharacterHealth;
+
     // Start is called before the first frame update
     void Start()
     {
+        permanentCharacterHealth = 12;
+        permanentCharacterInventory = new GameObject[3];
+        RandomizeFirstCharacterInventory();
         monstersInFloor = new Monster[1];
         monstersInNextFloor = new Monster[1];
         actualFloor = 0;
@@ -80,6 +86,14 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Actual Floor: " + actualFloor + " - Actual Client: " + actualClient);
         shopMoneyPanel.text = "$" + shopInventory.money;
+        if (floorList[actualFloor][actualClient].GetComponent<Character>().isMainCharacter)
+        {
+            for(int i = 0; i < permanentCharacterInventory.Length; i++)
+            {
+                floorList[actualFloor][actualClient].GetComponent<Character>().itemList[i] = permanentCharacterInventory[i];
+            }
+            floorList[actualFloor][actualClient].GetComponent<Character>().health = permanentCharacterHealth;
+        }
         statsPanel.characterObject = floorList[actualFloor][actualClient];
         statsPanel.Refresh();
         shopInventory.character = floorList[actualFloor][actualClient];
@@ -127,8 +141,43 @@ public class GameManager : MonoBehaviour
     {
         fadeAnim.SetBool("playAnim", true);
         yield return new WaitForSeconds(1.5f);
+        CalculateCombat();
         NextFloor();
         fadeAnim.SetBool("playAnim", false);
+    }
+
+    void CalculateCombat()
+    {
+        int livesLost = 0;
+        List<string> characterCapacityList = new List<string>();
+        List<string> monsterCapacitiesList = new List<string>();
+
+        for (int i = 0; i < permanentCharacterInventory.Length; i++)
+        {
+            characterCapacityList.Add(permanentCharacterInventory[i].GetComponent<Item>().capacity1);
+            characterCapacityList.Add(permanentCharacterInventory[i].GetComponent<Item>().capacity2);
+        }
+
+        monsterCapacitiesList.Add(monstersInFloor[0].GetComponent<Monster>().monsterType);
+        monsterCapacitiesList.Add(monstersInFloor[0].GetComponent<Monster>().monsterClass);
+        monsterCapacitiesList.Add(monstersInFloor[0].GetComponent<Monster>().monsterElement);
+
+        if (actualFloor > 5)
+        {
+            monsterCapacitiesList.Add(monstersInFloor[1].GetComponent<Monster>().monsterType);
+            monsterCapacitiesList.Add(monstersInFloor[1].GetComponent<Monster>().monsterClass);
+            monsterCapacitiesList.Add(monstersInFloor[1].GetComponent<Monster>().monsterElement);
+        }
+
+        for(int i = 0; i < characterCapacityList.Count; i++)
+        {
+            if (!monsterCapacitiesList.Contains(characterCapacityList[i]))
+            {
+                livesLost++;
+            }
+        }
+
+        permanentCharacterHealth -= livesLost;
     }
 
     public void updateForecast()
@@ -197,5 +246,17 @@ public class GameManager : MonoBehaviour
 
         }
 
+    }
+
+    void RandomizeFirstCharacterInventory()
+    {
+        int random = (int)Random.Range(0, shopInventory.gameObject.GetComponent<ShopInventoryRandomizer>().weaponList.Length - 1);
+        permanentCharacterInventory[0] = shopInventory.gameObject.GetComponent<ShopInventoryRandomizer>().weaponList[random];
+
+        random = (int)Random.Range(0, shopInventory.gameObject.GetComponent<ShopInventoryRandomizer>().armorList.Length - 1);
+        permanentCharacterInventory[1] = shopInventory.gameObject.GetComponent<ShopInventoryRandomizer>().armorList[random];
+
+        random = (int)Random.Range(0, shopInventory.gameObject.GetComponent<ShopInventoryRandomizer>().specialsList.Length - 1);
+        permanentCharacterInventory[2] = shopInventory.gameObject.GetComponent<ShopInventoryRandomizer>().specialsList[random];
     }
 }

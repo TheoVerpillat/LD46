@@ -68,6 +68,7 @@
     <Compile Include="Assets\Scripts\CharacterInventory.cs" />
     <Compile Include="Assets\Scripts\CharacterItemsRandomizer.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\GameOverScript.cs" />
     <Compile Include="Assets\Scripts\GenerateDay.cs" />
     <Compile Include="Assets\Scripts\Item.cs" />
     <Compile Include="Assets\Scripts\ItemSlot.cs" />
@@ -78,9 +79,11 @@
     <Compile Include="Assets\Scripts\ShopInventory.cs" />
     <Compile Include="Assets\Scripts\ShopInventoryRandomizer.cs" />
     <Compile Include="Assets\Scripts\SimpleCameraController.cs" />
+    <Compile Include="Assets\Scripts\TaxesScript.cs" />
     <Compile Include="Assets\Scripts\UI\UI_DisplayStats.cs" />
     <Compile Include="Assets\Scripts\UI\UI_Offset.cs" />
     <Compile Include="Assets\Scripts\UI\UI_PercentageOfScreen.cs" />
+    <Compile Include="Assets\Scripts\VictoryScript.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
@@ -136,11 +139,17 @@
     <Reference Include="Unity.CollabProxy.Editor">
       <HintPath>/Users/Theo/Documents/Projects/Unity/LD46/LD46/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Postprocessing.Editor">
+      <HintPath>/Users/Theo/Documents/Projects/Unity/LD46/LD46/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Rider.Editor">
       <HintPath>/Users/Theo/Documents/Projects/Unity/LD46/LD46/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
       <HintPath>/Users/Theo/Documents/Projects/Unity/LD46/LD46/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Postprocessing.Runtime">
+      <HintPath>/Users/Theo/Documents/Projects/Unity/LD46/LD46/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.ShaderGraph.Editor">
       <HintPath>/Users/Theo/Documents/Projects/Unity/LD46/LD46/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
@@ -153,12 +162,6 @@
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>/Users/Theo/Documents/Projects/Unity/LD46/LD46/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Postprocessing.Editor">
-      <HintPath>/Users/Theo/Documents/Projects/Unity/LD46/LD46/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Postprocessing.Runtime">
-      <HintPath>/Users/Theo/Documents/Projects/Unity/LD46/LD46/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>/Applications/Unity/Hub/Editor/2019.3.10f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
