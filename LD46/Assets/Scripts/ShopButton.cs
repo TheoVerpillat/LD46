@@ -16,6 +16,7 @@ public class ShopButton : MonoBehaviour
 
     public void AddItem()
     {
+        shopInventory.gameManager.GetComponent<AudioSource>().Play();
         //Debug.Log("_____________________");
         Debug.Log("BUTTON PRESSED: " + this);
         //Debug.Log("BUTTON STATUS: " + buttonStatus);
@@ -116,10 +117,15 @@ public class ShopButton : MonoBehaviour
 
     public void sellItems()
     {
+        shopInventory.gameManager.GetComponent<AudioSource>().Play();
+
+        int totalToSold = 0;
         for (int i = 0; i < shopInventory.temporaryCharacterItems.Length; i++)
         {
+            //Debug.Log("Total to sold: " + totalToSold);
             if (shopInventory.temporaryCharacterItems[i] != null)
             {
+                totalToSold++;
                 //Debug.Log("EMBALLÉ C'EST PESÉ");
                 shopInventory.character.GetComponent<Character>().itemList[i] = shopInventory.temporaryCharacterItems[i];
                 shopInventory.temporaryCharacterItems[i] = null;
@@ -128,6 +134,11 @@ public class ShopButton : MonoBehaviour
             {
                 //Debug.Log("Y a rien :'(");
             }
+        }
+        if(totalToSold == 0)
+        {
+            dontSellAnything();
+            return;
         }
 
         shopInventory.character.GetComponent<Character>().health += shopInventory.temporaryHealth;
@@ -145,12 +156,16 @@ public class ShopButton : MonoBehaviour
         ChangeButton(this, buttonValue.DONTSELL);
         shopInventory.totalCost = 0;
         RemoveSelledItems();
+
+        shopInventory.gameManager.gameObject.GetComponent<SentencesGenerator>().StopSentence();
         shopInventory.gameManager.NextClient();
     }
 
     public void dontSellAnything()
     {
-        //Add to Count
+        shopInventory.gameManager.gameObject.GetComponent<SentencesGenerator>().StopSentence();
+        shopInventory.gameManager.numberOfPenalties++;
+        Debug.Log("PENALTIES: " + shopInventory.gameManager.numberOfPenalties);
         shopInventory.gameManager.NextClient();
     }
 

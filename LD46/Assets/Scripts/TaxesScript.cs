@@ -11,6 +11,8 @@ public class TaxesScript : MonoBehaviour
     public int penaltiesNbr;
     public int total;
 
+    public GameManager gameManager;
+
     public bool calculateTaxes;
 
     [SerializeField] GameObject TaxCanvas;
@@ -40,7 +42,7 @@ public class TaxesScript : MonoBehaviour
 
             savingsText.text = savings.ToString();
             rentText.text = rent.ToString();
-            penaltiesNbrText.text = penaltyValue.ToString();
+            penaltyValueText.text = penaltyValue.ToString();
             penaltiesNbrText.text = penaltiesNbr.ToString();
             totalText.text = total.ToString();
 
@@ -54,6 +56,7 @@ public class TaxesScript : MonoBehaviour
     {
         buttonSound.Play();
         TaxCanvas.SetActive(false);
+        gameManager.authorizeGoingToNextFloor();
         Debug.Log("Next Floor Called on TaxesManager Script");
     }
 }

@@ -1,19 +1,21 @@
 ﻿<Properties StartupConfiguration="{B1DFBC55-95C2-9078-623F-D1A132B80019}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/ShopInventory.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/SentencesGenerator.cs">
     <Files>
       <File FileName="Assets/Scripts/UI/UI_PercentageOfScreen.cs" Line="66" Column="62" />
       <File FileName="Assets/Scripts/UI/UI_Offset.cs" Line="22" Column="84" />
-      <File FileName="Assets/Scripts/Character.cs" Line="13" Column="32" />
+      <File FileName="Assets/Scripts/Character.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Item.cs" Line="8" Column="128" />
-      <File FileName="Assets/Scripts/UI/UI_DisplayStats.cs" Line="34" Column="11" />
+      <File FileName="Assets/Scripts/UI/UI_DisplayStats.cs" Line="60" Column="1" />
       <File FileName="Assets/Scripts/ItemSlot.cs" Line="18" Column="49" />
-      <File FileName="Assets/Scripts/ShopButton.cs" Line="125" Column="17" />
-      <File FileName="Assets/Scripts/CharacterItemsRandomizer.cs" Line="21" Column="6" />
-      <File FileName="Assets/Scripts/ShopInventoryRandomizer.cs" Line="13" Column="40" />
+      <File FileName="Assets/Scripts/ShopButton.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/CharacterItemsRandomizer.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/ShopInventoryRandomizer.cs" Line="173" Column="33" />
       <File FileName="Assets/Scripts/GenerateDay.cs" Line="47" Column="14" />
-      <File FileName="Assets/Scripts/GameManager.cs" Line="137" Column="9" />
+      <File FileName="Assets/Scripts/GameManager.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Monster.cs" Line="13" Column="1" />
       <File FileName="Assets/Scripts/ShopInventory.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/TaxesScript.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/SentencesGenerator.cs" Line="43" Column="15" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
