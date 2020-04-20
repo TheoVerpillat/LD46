@@ -49,4 +49,4 @@ MonoBehaviour:
   capacity1: SPECTRE
   capacity2: CRAWLER
   potionEfficacity: 0
-  icon: {fileID: 21300000, guid: 509555f8574434a3a8d328b6cb31d0b1, type: 3}
+  icon: {fileID: 21300000, guid: 201efdd488c0aac42b2ad48c571c4300, type: 3}

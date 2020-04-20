@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7500678523579159572
+--- !u!1 &8319616596885292417
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,45 +8,45 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7500678523579159574}
-  - component: {fileID: 7500678523579159573}
+  - component: {fileID: 8319616596885292423}
+  - component: {fileID: 8319616596885292422}
   m_Layer: 0
-  m_Name: MachineGun - W88MG
+  m_Name: Moto - R12M II
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7500678523579159574
+--- !u!4 &8319616596885292423
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7500678523579159572}
+  m_GameObject: {fileID: 8319616596885292417}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 341}
+  m_LocalPosition: {x: 48.277348, y: 18.104746, z: 41.210674}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7500678523579159573
+--- !u!114 &8319616596885292422
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7500678523579159572}
+  m_GameObject: {fileID: 8319616596885292417}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0cbddd25d263f45e089d6134932536fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  serial: W88MG
+  serial: R12M II
   cost: 250
-  itemType: 0
-  capacity1: TANK
-  capacity2: /
+  itemType: 1
+  capacity1: PRIEST
+  capacity2: POISON
   potionEfficacity: 0
-  icon: {fileID: 21300000, guid: df45fd74b27f469469cee2141e85d34c, type: 3}
+  icon: {fileID: 21300000, guid: 8f7d8f1476f88e84297b4a93525a5397, type: 3}
