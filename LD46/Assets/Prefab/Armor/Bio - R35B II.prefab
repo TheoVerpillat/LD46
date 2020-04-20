@@ -49,4 +49,4 @@ MonoBehaviour:
   capacity1: WITCH
   capacity2: ELECTRIC
   potionEfficacity: 0
-  icon: {fileID: 21300000, guid: af3c06af007904408b8e858476dfb5ac, type: 3}
+  icon: {fileID: 21300000, guid: c04bb4cb6a8567248a196aba32ddeb5b, type: 3}
