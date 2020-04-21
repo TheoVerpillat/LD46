@@ -49,4 +49,4 @@ MonoBehaviour:
   capacity1: ELECTRIC
   capacity2: /
   potionEfficacity: 0
-  icon: {fileID: 21300000, guid: bb82f8f008f4df346b78b9f47d3473a7, type: 3}
+  icon: {fileID: 21300000, guid: 3619990d42b4a4e5e9c76634fce73041, type: 3}

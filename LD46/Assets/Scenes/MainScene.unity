@@ -4360,7 +4360,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!1 &332554087
 GameObject:
@@ -5628,7 +5628,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!1 &394472458
 GameObject:
@@ -5707,7 +5707,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &394472462
 RectTransform:
@@ -6015,8 +6015,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   savings: 200
-  rent: -200
-  penaltyValue: -50
+  rent: -300
+  penaltyValue: -100
   penaltiesNbr: 1
   total: 0
   gameManager: {fileID: 608459856}
@@ -14689,7 +14689,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!1 &1080748905
 GameObject:
@@ -18019,6 +18019,11 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1696999372}
+    - target: {fileID: 1174355357060744269, guid: 43e5d35c885d5d349854f35247e243c4,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1174355357060744270, guid: 43e5d35c885d5d349854f35247e243c4,
         type: 3}
       propertyPath: m_Name
@@ -24786,7 +24791,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &2019534558
 RectTransform:

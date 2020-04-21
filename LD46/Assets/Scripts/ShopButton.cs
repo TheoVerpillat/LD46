@@ -55,11 +55,14 @@ public class ShopButton : MonoBehaviour
         }
         else if (LinkedItem.GetComponent<Item>().itemType.Equals(Item.ItemType.SPECIALS))
         {
+            Debug.Log("CLICK ON SPECIAL: " + LinkedItem.GetComponent<Item>().cost);
             if (shopInventory.precedentSpecialsButtonPressed != null)
             {
+                Debug.Log("1: " + LinkedItem.GetComponent<Item>().cost);
                 ChangeButton(shopInventory.precedentSpecialsButtonPressed, buttonValue.ADD);
                 shopInventory.totalCost -= shopInventory.precedentSpecialsButtonPressed.LinkedItem.GetComponent<Item>().cost;
             }
+            Debug.Log("2: " + LinkedItem.GetComponent<Item>().cost);
             shopInventory.temporaryCharacterItems[2] = LinkedItem;
             shopInventory.selledItems[2] = transform.parent.GetComponent<ItemSlot>();
             shopInventory.precedentSpecialsButtonPressed = this;
@@ -68,7 +71,7 @@ public class ShopButton : MonoBehaviour
         {
             shopInventory.temporaryHealth += LinkedItem.GetComponent<Item>().potionEfficacity;
         }
-
+        Debug.Log("3: " + LinkedItem.GetComponent<Item>().cost);
         shopInventory.totalCost += LinkedItem.GetComponent<Item>().cost;
         ChangeButton(this, buttonValue.REMOVE);
         ChangeButton(sellButton, buttonValue.SELL);
@@ -202,13 +205,18 @@ public class ShopButton : MonoBehaviour
 
     public void RemoveSelledItems()
     {
-        for(int i = 0; i < shopInventory.selledItems.Length; i++)
+        shopInventory.precedentWeaponButtonPressed = null;
+        shopInventory.precedentArmorButtonPressed = null;
+        shopInventory.precedentSpecialsButtonPressed = null;
+
+        for (int i = 0; i < shopInventory.selledItems.Length; i++)
         {
             if(shopInventory.selledItems[i] != null)
             {
                 shopInventory.selledItems[i].gameObject.SetActive(false);
             }
         }
+        buttonStatus = 0;
     }
 
 }
