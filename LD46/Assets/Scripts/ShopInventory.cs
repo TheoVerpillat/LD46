@@ -16,6 +16,7 @@ public class ShopInventory : MonoBehaviour
     public Sprite[] shopButtonSprites;
     public GameManager gameManager;
     public ItemSlot[] selledItems;
+
     public int money;
     
 
@@ -33,6 +34,10 @@ public class ShopInventory : MonoBehaviour
             itemSlotList[i].gameObject.SetActive(true);
             itemSlotList[i].item = itemList[i].GetComponent<Item>();
             itemSlotList[i].Assign(itemList[i]);
+            ShopButton button = itemSlotList[i].transform.GetChild(2).GetComponent<ShopButton>();
+            button.buttonStatus = 0;
+            button.ChangeButton(button, ShopButton.buttonValue.ADD);
         }
+
     }
 }

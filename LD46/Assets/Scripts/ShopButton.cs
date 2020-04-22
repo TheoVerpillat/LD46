@@ -6,13 +6,13 @@ using TMPro;
 
 public class ShopButton : MonoBehaviour
 {
-    enum buttonValue {ADD, REMOVE, SELL, DONTSELL};
+    public enum buttonValue {ADD, REMOVE, SELL, DONTSELL};
     public GameObject LinkedItem;
     public ShopInventory shopInventory;
     public ShopButton sellButton;
 
 
-    private int buttonStatus;
+    public int buttonStatus;
 
     public void AddItem()
     {
@@ -69,6 +69,7 @@ public class ShopButton : MonoBehaviour
         }
         else if (LinkedItem.GetComponent<Item>().itemType.Equals(Item.ItemType.POTION))
         {
+            shopInventory.selledItems[3] = transform.parent.GetComponent<ItemSlot>();
             shopInventory.temporaryHealth += LinkedItem.GetComponent<Item>().potionEfficacity;
         }
         Debug.Log("3: " + LinkedItem.GetComponent<Item>().cost);
@@ -104,6 +105,7 @@ public class ShopButton : MonoBehaviour
         }
         else if (LinkedItem.GetComponent<Item>().itemType.Equals(Item.ItemType.POTION))
         {
+            shopInventory.selledItems[3] = null;
             shopInventory.temporaryHealth -= LinkedItem.GetComponent<Item>().potionEfficacity;
         }
 
@@ -138,6 +140,9 @@ public class ShopButton : MonoBehaviour
                 //Debug.Log("Y a rien :'(");
             }
         }
+
+        if (shopInventory.temporaryHealth > 0) totalToSold++;
+
         if(totalToSold == 0)
         {
             dontSellAnything();
@@ -151,12 +156,20 @@ public class ShopButton : MonoBehaviour
             shopInventory.gameManager.permanentCharacterHealth = shopInventory.character.GetComponent<Character>().health;
             shopInventory.gameManager.permanentCharacterInventory = shopInventory.character.GetComponent<Character>().itemList;
          }
+
         //Refresh Health
         shopInventory.money += shopInventory.totalCost;
         shopInventory.precedentWeaponButtonPressed = null;
         shopInventory.precedentArmorButtonPressed = null;
         shopInventory.precedentWeaponButtonPressed = null;
         ChangeButton(this, buttonValue.DONTSELL);
+
+        shopInventory.temporaryCharacterItems[0] = null;
+        shopInventory.temporaryCharacterItems[1] = null;
+        shopInventory.temporaryCharacterItems[2] = null;
+
+        shopInventory.temporaryHealth = 0;
+
         shopInventory.totalCost = 0;
         RemoveSelledItems();
 
@@ -172,7 +185,7 @@ public class ShopButton : MonoBehaviour
         shopInventory.gameManager.NextClient();
     }
 
-    private void ChangeButton (ShopButton button, buttonValue value)
+    public void ChangeButton (ShopButton button, buttonValue value)
     {
         if (value.Equals(buttonValue.ADD))
         {
@@ -205,6 +218,7 @@ public class ShopButton : MonoBehaviour
 
     public void RemoveSelledItems()
     {
+
         shopInventory.precedentWeaponButtonPressed = null;
         shopInventory.precedentArmorButtonPressed = null;
         shopInventory.precedentSpecialsButtonPressed = null;

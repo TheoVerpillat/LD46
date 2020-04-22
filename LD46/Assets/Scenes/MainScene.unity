@@ -8353,6 +8353,7 @@ MonoBehaviour:
   LinkedItem: {fileID: 0}
   shopInventory: {fileID: 1364121493}
   sellButton: {fileID: 1156483376}
+  buttonStatus: 0
 --- !u!1 &639066297
 GameObject:
   m_ObjectHideFlags: 0
@@ -11454,6 +11455,7 @@ MonoBehaviour:
   LinkedItem: {fileID: 0}
   shopInventory: {fileID: 1364121493}
   sellButton: {fileID: 1156483376}
+  buttonStatus: 0
 --- !u!1 &857646863
 GameObject:
   m_ObjectHideFlags: 0
@@ -12877,6 +12879,7 @@ MonoBehaviour:
   LinkedItem: {fileID: 0}
   shopInventory: {fileID: 1364121493}
   sellButton: {fileID: 1156483376}
+  buttonStatus: 0
 --- !u!1 &934319572
 GameObject:
   m_ObjectHideFlags: 0
@@ -15133,6 +15136,7 @@ MonoBehaviour:
   LinkedItem: {fileID: 0}
   shopInventory: {fileID: 1364121493}
   sellButton: {fileID: 1156483376}
+  buttonStatus: 0
 --- !u!1 &1127821550
 GameObject:
   m_ObjectHideFlags: 0
@@ -15718,6 +15722,7 @@ MonoBehaviour:
   LinkedItem: {fileID: 0}
   shopInventory: {fileID: 1364121493}
   sellButton: {fileID: 0}
+  buttonStatus: 0
 --- !u!114 &1156483377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17330,6 +17335,7 @@ MonoBehaviour:
   LinkedItem: {fileID: 0}
   shopInventory: {fileID: 1364121493}
   sellButton: {fileID: 1156483376}
+  buttonStatus: 0
 --- !u!1 &1242340455
 GameObject:
   m_ObjectHideFlags: 0
@@ -17899,6 +17905,7 @@ MonoBehaviour:
   LinkedItem: {fileID: 0}
   shopInventory: {fileID: 1364121493}
   sellButton: {fileID: 1156483376}
+  buttonStatus: 0
 --- !u!1 &1306393998
 GameObject:
   m_ObjectHideFlags: 0
@@ -18576,6 +18583,7 @@ MonoBehaviour:
   LinkedItem: {fileID: 0}
   shopInventory: {fileID: 1364121493}
   sellButton: {fileID: 1156483376}
+  buttonStatus: 0
 --- !u!114 &1349142826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19165,6 +19173,7 @@ MonoBehaviour:
   - {fileID: 0}
   gameManager: {fileID: 608459856}
   selledItems:
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -21574,6 +21583,7 @@ MonoBehaviour:
   LinkedItem: {fileID: 0}
   shopInventory: {fileID: 1364121493}
   sellButton: {fileID: 1156483376}
+  buttonStatus: 0
 --- !u!1 &1567539255
 GameObject:
   m_ObjectHideFlags: 0
@@ -23727,6 +23737,7 @@ MonoBehaviour:
   LinkedItem: {fileID: 0}
   shopInventory: {fileID: 1364121493}
   sellButton: {fileID: 1156483376}
+  buttonStatus: 0
 --- !u!1 &1866638270
 GameObject:
   m_ObjectHideFlags: 0
