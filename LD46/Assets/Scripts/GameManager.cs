@@ -135,24 +135,37 @@ public class GameManager : MonoBehaviour
 
     public string ClientSentence()
     {
-        List<string> monsterCapacitiesList = new List<string>();
-        monsterCapacitiesList.Add(monstersInFloor[0].GetComponent<Monster>().monsterType);
-        monsterCapacitiesList.Add(monstersInFloor[0].GetComponent<Monster>().monsterClass);
-        monsterCapacitiesList.Add(monstersInFloor[0].GetComponent<Monster>().monsterElement);
+        //List<string> monsterCapacitiesList = new List<string>();
+        //monsterCapacitiesList.Add(monstersInFloor[0].GetComponent<Monster>().monsterType);
+        //monsterCapacitiesList.Add(monstersInFloor[0].GetComponent<Monster>().monsterClass);
+        //monsterCapacitiesList.Add(monstersInFloor[0].GetComponent<Monster>().monsterElement);
 
-        if (actualFloor > 5)
+        //if (actualFloor > 5)
+        //{
+        //    monsterCapacitiesList.Add(monstersInFloor[1].GetComponent<Monster>().monsterType);
+        //    monsterCapacitiesList.Add(monstersInFloor[1].GetComponent<Monster>().monsterClass);
+        //    monsterCapacitiesList.Add(monstersInFloor[1].GetComponent<Monster>().monsterElement);
+        //}
+
+        //monsterCapacitiesList.Add(monstersInNextFloor[0].GetComponent<Monster>().monsterType);
+        //monsterCapacitiesList.Add(monstersInNextFloor[0].GetComponent<Monster>().monsterClass);
+        //monsterCapacitiesList.Add(monstersInNextFloor[0].GetComponent<Monster>().monsterElement);
+
+        //int rndMonster = Random.Range(0, monsterCapacitiesList.Count - 1);
+        //string s = sentencesGenerator.GenerateCharacterSentence(monsterCapacitiesList[rndMonster]);
+
+
+        List<string> shopCapacitiesList = new List<string>();
+        for (int i = 0; i < shopInventory.itemList.Length; i++)
         {
-            monsterCapacitiesList.Add(monstersInFloor[1].GetComponent<Monster>().monsterType);
-            monsterCapacitiesList.Add(monstersInFloor[1].GetComponent<Monster>().monsterClass);
-            monsterCapacitiesList.Add(monstersInFloor[1].GetComponent<Monster>().monsterElement);
+            Item item = shopInventory.itemList[i].GetComponent<Item>();
+            if(!item.capacity1.Equals("/")) shopCapacitiesList.Add(item.capacity1);
+            if (!item.capacity2.Equals("/")) shopCapacitiesList.Add(item.capacity2);
+            Debug.Log("ITEM: " + shopInventory.itemList[i]);
+            Debug.Log(item.capacity1 + " - " + item.capacity2);
         }
-
-        monsterCapacitiesList.Add(monstersInNextFloor[0].GetComponent<Monster>().monsterType);
-        monsterCapacitiesList.Add(monstersInNextFloor[0].GetComponent<Monster>().monsterClass);
-        monsterCapacitiesList.Add(monstersInNextFloor[0].GetComponent<Monster>().monsterElement);
-
-        int rndMonster = Random.Range(0, monsterCapacitiesList.Count - 1);
-        string s = sentencesGenerator.GenerateCharacterSentence(monsterCapacitiesList[rndMonster]);
+        int rndCap = Random.Range(0, shopCapacitiesList.Count - 1);
+        string s = sentencesGenerator.GenerateCharacterSentence(shopCapacitiesList[rndCap]);
         return s;
     }
 

@@ -20,7 +20,7 @@ public class ShopInventory : MonoBehaviour
     public int money;
     
 
-    private void Start()
+    private void Awake()
     {
         ShopInventoryRandomizer sir = GetComponent<ShopInventoryRandomizer>();
         sir.RandomizeShopInventory();
